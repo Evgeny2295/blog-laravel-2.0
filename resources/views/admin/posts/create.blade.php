@@ -18,8 +18,8 @@
                                  @enderror
                              </div>
                              <div class="form-group w-75">
-                                 <label for="summernote">Контент</label>
-                                 <textarea id="summernote" name="content">{{old('content')}}</textarea>
+                                 <div style="font-weight: 700">Контент</div>
+                                 <textarea id="content" name="content" style="width: 500px">{{old('content')}}</textarea>
                                  @error('content')
                                  {{$message}}
                                  @enderror

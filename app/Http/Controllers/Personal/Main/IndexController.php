@@ -9,7 +9,10 @@ class IndexController extends Controller
 {
     public function index()
     {
-        return view('personal.main.index');
+        $cntLikedPosts = count(auth()->user()->posts);
+
+        $cntComments = count(auth()->user()->comments);
+        return view('personal.main.index',compact('cntLikedPosts','cntComments'));
     }
 
 }

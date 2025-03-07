@@ -39,7 +39,6 @@ use Illuminate\Support\Facades\Storage;
     public function store(StoreRequest $request)
     {
         $data = $request->validated();
-
         $this->service->store($data);
 
         return redirect()->route('posts.index');
@@ -69,6 +68,7 @@ use Illuminate\Support\Facades\Storage;
      */
     public function update(UpdateRequest $request,Post $post)
     {
+
         $data = $request->validated();
 
         $post = $this->service->update($data,$post);

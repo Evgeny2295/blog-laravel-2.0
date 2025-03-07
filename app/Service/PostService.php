@@ -27,7 +27,6 @@ class PostService
                 $post->tags()->attach($tagIds);
             }
 
-
             DB::commit();
         }catch (\Exception $exception){
             abort(500);
@@ -37,6 +36,7 @@ class PostService
 
     public function update($data,$post)
     {
+
         try{
             DB::beginTransaction();
             if(!empty($data['main_image'])){
@@ -46,9 +46,8 @@ class PostService
 
             if(!empty($data['tag_ids'])){
                 $tagIds = $data['tag_ids'];
+                unset($data['tag_ids']);
             }
-
-            unset($data['tag_ids']);
 
             $post->update($data);
 
@@ -56,9 +55,9 @@ class PostService
                 $post->tags()->sync($tagIds);
             }
 
-            return $post;
-
             DB::commit();
+
+            return $post;
         }catch (\Exception $exception){
             abort(500);
         }

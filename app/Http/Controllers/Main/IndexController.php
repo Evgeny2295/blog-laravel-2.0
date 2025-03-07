@@ -13,7 +13,7 @@ class IndexController extends Controller
     public function index()
     {
 
-        $posts = Post::paginate(2);
+        $posts = Post::orderBy('created_at','DESC')->paginate(5);
         $categories = Category::all();
         $likedPosts = Post::withCount('likedUsers')->orderBy('liked_users_count','DESC')->get()->take(4);
 

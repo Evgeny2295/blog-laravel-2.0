@@ -29,7 +29,7 @@ Route::prefix('personal')->group(function(){
     Route::get('/login',[\App\Http\Controllers\Personal\Login\IndexController::class,'index'])->name('personal.login.index');
     Route::get('/register',[\App\Http\Controllers\Personal\Register\IndexController::class,'index'])->name('personal.register.index');
 
-    Route::group(['middleware'=>['auth','verified']],function(){
+    Route::group(['middleware'=>['auth']],function(){ // временно убрал middle verified
        Route::get('/',[\App\Http\Controllers\Personal\Main\IndexController::class,'index'])->name('personal.main.index');
        Route::get('/liked',[\App\Http\Controllers\Personal\Liked\IndexController::class,'index'])->name('personal.liked.index');
        Route::get('/comment',[\App\Http\Controllers\Personal\Comment\IndexController::class,'index'])->name('personal.comment.index');
@@ -38,7 +38,7 @@ Route::prefix('personal')->group(function(){
     });
 });
 
-Route::group(['middleware'=>['auth','admin','verified']],function(){
+Route::group(['middleware'=>['auth']],function(){ //Временно убрал middle verified, admin
     Route::get('admin/',[\App\Http\Controllers\Admin\Main\IndexController::class,'index'])->name('admin.main.index');
 
     Route::resources([
@@ -52,6 +52,5 @@ Route::group(['middleware'=>['auth','admin','verified']],function(){
 
 Auth::routes(['verify'=>true]);
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
 

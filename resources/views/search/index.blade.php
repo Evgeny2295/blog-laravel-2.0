@@ -52,8 +52,7 @@
                             </div>
                             <div class="main__liked-posts">
                                 <h3 class="main__liked-posts-title">Топ посты</h3>
-                                @foreach($likedPosts as $likedPost)
-                                    <ul class="main__liked-posts-list">
+                                    <ul class="">
                                         @foreach($likedPosts as $likedPost)
                                             <li>
                                                 <a href="{{route('post.show',$likedPost->id)}}" class="">
@@ -63,7 +62,6 @@
                                             </li>
                                         @endforeach()
                                     </ul>
-                                @endforeach
                             </div>
                         </div>
 

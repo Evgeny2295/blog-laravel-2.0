@@ -7,7 +7,7 @@
             <div class="main__one-post-center">
                 <p class="main__post-date">{{$date->translatedFormat('F')}} {{$date->day}}, {{$date->year}} • {{$date->format('H:i')}} • Featured • {{$post->comments->count()}} комментария(-ий)</p>
                 <div class="main__one-post">
-                    <img class="main__one-post-img" src="{{url('storage/'.$post->main_image)}}" alt="blog post">
+                    <img src="{{url('storage/'.$post->main_image)}}" alt="blog post" style="width: 300px;height: 300px">
                     <div class="main__one-post-info">
                         <p class="main__one-post-category-title">Категория:{{mb_strtolower($post->category->title)}}</p>
                         <div class="main__one-post-like">
@@ -33,6 +33,9 @@
                         </div>
                     </div>
                 </div>
+                <div class="text-center">
+                    {{$post->content}}
+                </div>
             </div>
             <div class="main__related-posts">
                 <h2 class="main__related-posts-title">Похожие посты</h2>
@@ -52,7 +55,7 @@
                     @foreach($post->comments as $comment)
                         <div class="main__comment-text">
                     <span class="main__comment-username">{{$comment->user->name}}
-                    <span class="main__comment-date">{{$comment->dateAsCarbon->diffForHUmans()}}</span></span>
+                    <span class="main__comment-date">{{$comment->dateAsCarbon->diffForHumans()}}</span></span>
                             <div>
                                 {{$comment->comment}}
                             </div>
@@ -67,7 +70,6 @@
                         <form action="{{route('post.comment.store',$post->id)}}" method="POST">
                             @csrf
                             <div class="main__add-comment-text">
-                                <label for="comment" class="">Комментарий</label>
                                 <textarea name="comment" rows="7" cols="50">{{old('comment')}}</textarea>
                             </div>
                             <div class="main__add-comment-btn">

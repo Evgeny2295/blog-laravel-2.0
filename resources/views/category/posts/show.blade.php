@@ -14,7 +14,7 @@
                                         <h6 class="main__one-post-title">{{$post->title}}</h6>
                                     </a>
                                     <a href="{{route('post.show',$post->id)}}">
-                                        <img src="{{url('storage/'.$post->main_image)}}" alt="blog post">
+                                        <img src="{{url('storage/'.$post->main_image)}}"  class="main__one-post-img" alt="blog post">
                                     </a>
                                     <div class="main__one-post-info">
                                         <p class="main__one-post-category-title">Категория:{{mb_strtolower($post->category->title)}}</p>
@@ -49,8 +49,7 @@
                     </div>
                     <div class="main__liked-posts">
                         <h3 class="main__liked-posts-title">Топ посты</h3>
-                        @foreach($likedPosts as $likedPost)
-                            <ul class="main__liked-posts-list">
+                            <ul class="">
                                 @foreach($likedPosts as $likedPost)
                                     <li>
                                         <a href="{{route('post.show',$likedPost->id)}}" class="">
@@ -60,7 +59,6 @@
                                     </li>
                                 @endforeach()
                             </ul>
-                        @endforeach
                         <img src="" alt="">
                         <p class="main__liked-posts-title"></p>
                     </div>
