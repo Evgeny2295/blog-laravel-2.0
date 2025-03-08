@@ -5,36 +5,42 @@ body,html{
     padding: 0;
     scroll-behavior: smooth; /*Плавная прокрутка*/
 }
+
 body{
     background-color: #555a61;
 }
+
 *{
     box-sizing: border-box;/
 }
+
 a{
     text-decoration: none;
     color: #000000;
     font-size: 20px;
 }
+
 p{
     margin:0;
     padding:0;
 }
+
 img{
     max-width:100%;
     height:auto;
 }
+
 .btn{
     color:#FFFFFF;
     border: none;
     margin: 0;
     padding: 0;
-
 }
 
 li{
     list-style: none;
 }
+
 a{
     color:#FFFFFF;
 }
@@ -48,12 +54,14 @@ a{
     max-width: 1237px;
     margin: 0 auto;
 }
+
 .title{
     font-size: 60px;
     font-weight: 700;
     line-height: 110%;
     color: #4c4d4c;
 }
+
 .header-content{
     display: flex;
     padding: 30px 0;
@@ -61,6 +69,7 @@ a{
     align-items: center;
     justify-content: space-between;
 }
+
 .header__menu-btn{
     transition: font-size .7s ease;
 }
@@ -68,6 +77,7 @@ a{
     font-size: 21px;
     color:#c97412;
 }
+
 .header-content__nav-list{
     display: flex;
     justify-content: space-between;
@@ -278,7 +288,6 @@ a{
     text-align:center;
     padding:20px 0;
 }
-
 .main__one-post-center{
     display:flex;
     flex-direction: column;

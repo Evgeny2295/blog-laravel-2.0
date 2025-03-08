@@ -1,4 +1,5 @@
 @extends('layouts.blog')
+
 @section('content')
 <main>
     <div class="container">
@@ -80,7 +81,6 @@
                 </div>
             @endauth
         </div>
-
     </div>
 </main>
 @endsection

@@ -2,7 +2,6 @@
 
 @section('content')
     <div class="content-wrapper">
-        <!-- Main content -->
         <section class="content">
             <div class="container-fluid">
                 <div class="row">
@@ -48,7 +47,6 @@
                 </div>
             </div>
         </section>
-        <!-- /.content -->
     </div>
 @endsection
 

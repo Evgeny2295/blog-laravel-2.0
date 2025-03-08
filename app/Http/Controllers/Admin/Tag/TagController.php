@@ -32,7 +32,6 @@ class TagController extends Controller
      */
     public function store(StoreRequest $request)
     {
-
         $data = $request->validated();
 
         Tag::firstOrCreate($data);

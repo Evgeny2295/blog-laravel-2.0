@@ -2,7 +2,6 @@
 
 @section('content')
     <div class="content-wrapper">
-        <!-- Main content -->
         <section class="content">
             <div class="container-fluid">
                 <div class="row">
@@ -19,14 +18,12 @@
                                  {{$message}}
                                  @enderror
                              </div>
-
                              <button type="submit" class="btn btn-primary">Добавить</button>
                          </form>
                      </div>
                 </div>
             </div>
         </section>
-        <!-- /.content -->
     </div>
 @endsection
 

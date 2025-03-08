@@ -2,7 +2,6 @@
 
 @section('content')
     <div class="content-wrapper">
-        <!-- Main content -->
         <section class="content">
             <div class="container-fluid">
                 <div class="row">
@@ -39,7 +38,6 @@
                                     <div class="text-danger">{{$message}}</div>
                                  @enderror
                              </div>
-
                              <div class="form-group w-25">
                                  <label>Выберите категорию</label>
                                  <select name="category_id" class="form-control">
@@ -62,7 +60,6 @@
                 </div>
             </div>
         </section>
-        <!-- /.content -->
     </div>
 @endsection
 

@@ -23,8 +23,6 @@ Route::prefix('post')->group(function(){
     Route::post('/{post}/like',[\App\Http\Controllers\Post\Like\StoreController::class,'store'])->name('post.like.store');
 });
 
-
-
 Route::prefix('personal')->group(function(){
     Route::get('/login',[\App\Http\Controllers\Personal\Login\IndexController::class,'index'])->name('personal.login.index');
     Route::get('/register',[\App\Http\Controllers\Personal\Register\IndexController::class,'index'])->name('personal.register.index');
@@ -38,15 +36,17 @@ Route::prefix('personal')->group(function(){
     });
 });
 
-Route::group(['middleware'=>['auth']],function(){ //Временно убрал middle verified, admin
-    Route::get('admin/',[\App\Http\Controllers\Admin\Main\IndexController::class,'index'])->name('admin.main.index');
+Route::prefix('admin')->group(function(){
+    Route::group(['middleware'=>['auth']],function(){ //Временно убрал middleware verified, admin
+        Route::get('/',[\App\Http\Controllers\Admin\Main\IndexController::class,'index'])->name('admin.main.index');
 
-    Route::resources([
-        'admin/categories'=>\App\Http\Controllers\Admin\Category\CategoryController::class,
-        'admin/tags'=>\App\Http\Controllers\Admin\Tag\TagController::class,
-        'admin/posts'=>\App\Http\Controllers\Admin\Post\PostController::class,
-        'admin/users'=>\App\Http\Controllers\Admin\User\UserController::class,
-    ]);
+        Route::resources([
+            'categories'=>\App\Http\Controllers\Admin\Category\CategoryController::class,
+            'tags'=>\App\Http\Controllers\Admin\Tag\TagController::class,
+            'posts'=>\App\Http\Controllers\Admin\Post\PostController::class,
+            'users'=>\App\Http\Controllers\Admin\User\UserController::class,
+        ]);
+});
 });
 
 

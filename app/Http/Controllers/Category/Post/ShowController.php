@@ -12,6 +12,7 @@ class ShowController extends Controller
         $posts = $category->posts()->paginate(5);
 
         $categories = Category::all();
+
         $likedPosts = Post::withCount('likedUsers')->orderBy('liked_users_count','DESC')->get()->take(4);
 
         return view('category.posts.show',compact('category','posts','categories','likedPosts'));

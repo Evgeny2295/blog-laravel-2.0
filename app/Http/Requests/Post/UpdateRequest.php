@@ -39,7 +39,6 @@ class UpdateRequest extends FormRequest
             'content.required' => 'Это поле необходимо для заполнения',
             'content.string' => 'Это поле должно соответствовать строковому типу',
             'main_image.file' => 'Это поле должно соответствовать файловому типу',
-            'preview_image.file' => 'Это поле должно соответствовать файловому типу',
             'category_id.required'=>'Это поле необходимо для заполнения',
             'category_id.exists'=>'Id категории должен быть в дазе данных',
             'tags_ids.array'=>'Необходимо отправить массив данных',

@@ -3,7 +3,6 @@
 namespace App\Http\Controllers\Personal\Main;
 
 use App\Http\Controllers\Controller;
-use Illuminate\Http\Request;
 
 class IndexController extends Controller
 {
@@ -12,6 +11,7 @@ class IndexController extends Controller
         $cntLikedPosts = count(auth()->user()->posts);
 
         $cntComments = count(auth()->user()->comments);
+
         return view('personal.main.index',compact('cntLikedPosts','cntComments'));
     }
 

@@ -8,16 +8,19 @@ use Carbon\Carbon;
 
 class ShowController extends Controller
 {
-
     public function show(Post $post)
     {
         Carbon::setLocale('ru-RU');
+
         $date = Carbon::parse($post->created_at);
+
         $categories = Category::all();
+
         $relatedPosts = Post::where('category_id',$post->category_id)
             ->where('id','!=',$post->id)
             ->get()
             ->take(3);
+
         return view('post.show',compact('post','date','relatedPosts','categories'));
     }
 }

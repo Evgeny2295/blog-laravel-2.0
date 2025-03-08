@@ -8,7 +8,6 @@
     <link rel="stylesheet" href="{{asset('assets/vendors/flag-icon-css/css/flag-icon.min.css')}}">
     <link rel="stylesheet" href="{{asset('assets/vendors/font-awesome/css/all.min.css')}}">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
-
     <link rel="stylesheet" href="{{asset('assets/vendors/aos/aos.css')}}">
     <link rel="stylesheet" href="{{asset('assets/css/style.css')}}">
     <script src="{{asset('assets/vendors/jquery/jquery.min.js')}}"></script>
@@ -49,6 +48,11 @@
                 <li class="header-content__nav-item">
                     <a class="header-content__nav-link" href="#">Контакты</a>
                 </li>
+                @can('view',auth()->user())
+                    <li class="header-content__nav-item">
+                        <a class="header-content__nav-link" href="{{route('admin.main.index')}}">Админ панель</a>
+                    </li>
+                @endcan
             </ul>
             <ul class="header-content__search-personal">
                 <li class="header__search">
@@ -107,7 +111,6 @@
         </div>
 
     </div>
-
 </footer>
 <script src="{{asset('assets/vendors/popper.js/popper.min.js')}}"></script>
 <script src="{{asset('assets/vendors/bootstrap/dist/js/bootstrap.min.js')}}"></script>

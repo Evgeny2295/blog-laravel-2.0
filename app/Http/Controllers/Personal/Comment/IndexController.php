@@ -10,11 +10,10 @@ class IndexController extends Controller
 {
     public function index()
     {
-
          $comments = auth()->user()->comments;
-         foreach ($comments as $comment){
-           $comment->title = $comment->post->title;
 
+         foreach ($comments as $comment) {
+           $comment->title = $comment->post->title;
          }
 
          return view('personal.comment.index',compact('comments'));

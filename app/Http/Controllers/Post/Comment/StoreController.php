@@ -11,7 +11,9 @@ class StoreController extends Controller
     public function store(Post $post,StoreRequest $request)
     {
         $data = $request->validated();
+
         $data['user_id'] = auth()->user()->id;
+
         $data['post_id'] = $post->id;
 
         PostUserComment::create($data);

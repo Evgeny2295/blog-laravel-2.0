@@ -10,9 +10,8 @@ class StoreController extends Controller
 {
     public function store(Post $post)
     {
-
        auth()->user()->likedPosts()->toggle($post->id);
 
-        return redirect()->back();
+       return redirect()->back();
     }
 }

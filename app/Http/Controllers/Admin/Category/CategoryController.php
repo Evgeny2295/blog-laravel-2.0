@@ -6,8 +6,6 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\Category\StoreRequest;
 use App\Http\Requests\Category\UpdateRequest;
 use App\Models\Category;
-use Illuminate\Http\Request;
-use function Psy\debug;
 
 class CategoryController extends Controller
 {
@@ -34,7 +32,6 @@ class CategoryController extends Controller
      */
     public function store(StoreRequest $request)
     {
-
         $data = $request->validated();
 
         Category::firstOrCreate($data);

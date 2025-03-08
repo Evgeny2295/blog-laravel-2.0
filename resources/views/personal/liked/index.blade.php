@@ -2,10 +2,8 @@
 
 @section('content')
     <div class="content-wrapper">
-        <!-- Main content -->
         <section class="content">
             <div class="container-fluid">
-                <!-- Small boxes (Stat box) -->
                 <div class="row">
                     <div class="col-12 pt-3">
                         <div class="card-body table-responsive p-0">
@@ -28,18 +26,10 @@
                                 </tbody>
                             </table>
                         </div>
-
-
-
                     </div>
                 </div>
-                <!-- /.row -->
-                <!-- Main row -->
-
-                <!-- /.row (main row) -->
-            </div><!-- /.container-fluid -->
+            </div>
         </section>
-        <!-- /.content -->
     </div>
 @endsection
 

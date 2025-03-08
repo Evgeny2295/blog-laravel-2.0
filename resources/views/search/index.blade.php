@@ -64,7 +64,6 @@
                                     </ul>
                             </div>
                         </div>
-
                     @else
                             <h3 class="main__content-no-search">Ничего не найдено по данному запросу</h3>
                     @endif
