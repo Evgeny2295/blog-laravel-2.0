@@ -35,7 +35,9 @@ class CategoryController extends Controller
     {
         $data = $request->validated();
 
-        Category::firstOrCreate($data);
+        $category = Category::firstOrCreate($data);
+
+        if(!Cache::get('categories:'.$category->id)) Cache::put('categories:' . $category->id,$category);
 
         return redirect()->route('categories.index');
 
@@ -44,27 +46,35 @@ class CategoryController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(Category $category)
+    public function show($id)
     {
+        $category = Cache::get('categories:' . $id);
+
         return view('admin.categories.show',compact('category'));
     }
 
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Category $category)
+    public function edit($id)
     {
+        $category = Cache::get('categories:' . $id);
+
         return view('admin.categories.edit',compact('category'));
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(UpdateRequest $request,Category $category)
+    public function update(UpdateRequest $request,$id)
     {
+        $category = Cache::get('categories:' . $id);
+
         $data = $request->validated();
 
         $category->update($data);
+
+        Cache::put('categories:' . $category->id,$category);
 
         return view('admin.categories.show',compact('category'));
     }
@@ -72,9 +82,13 @@ class CategoryController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Category $category)
+    public function destroy($id)
     {
+        $category = Cache::get('categories:' . $id);
+
         $category->delete();
+
+        Cache::forget('categories:' . $category->id);
 
         return redirect()->route('categories.index');
     }

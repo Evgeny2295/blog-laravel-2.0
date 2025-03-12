@@ -8,12 +8,13 @@ use Illuminate\Support\Facades\Cache;
 
 class ShowController extends Controller
 {
-    public function show(Category $category)
+    public function show($id)
     {
+        $category = Cache::get('categories:' . $id);
+
         $posts = $category->posts()->paginate(5);
 
         $categories = Cache::remember('categories:all',60,fn()=>Category::all());
-
 
         $likedPosts = Post::withCount('likedUsers')->orderBy('liked_users_count','DESC')->get()->take(4);
 
