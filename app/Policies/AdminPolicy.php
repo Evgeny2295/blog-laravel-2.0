@@ -22,7 +22,7 @@ class AdminPolicy
     {
 
 //        return User::getRoles()[$model->role] === 'admin';  Временно уберем
-        return 1;
+          return 1;
     }
 
     /**

@@ -7,6 +7,7 @@ use App\Http\Requests\Post\UpdateRequest;
 use App\Models\Category;
 use App\Models\Post;
 use App\Models\Tag;
+use Illuminate\Support\Facades\Cache;
 
 class PostController extends BaseController
 {
@@ -25,7 +26,7 @@ class PostController extends BaseController
      */
     public function create()
     {
-        $categories = Category::all();
+        $categories = Cache::remember('categories:all',60,fn()=>Category::all());
 
         $tags = Tag::all();
 

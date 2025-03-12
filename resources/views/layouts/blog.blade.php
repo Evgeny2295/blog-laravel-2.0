@@ -48,11 +48,13 @@
                 <li class="header-content__nav-item">
                     <a class="header-content__nav-link" href="#">Контакты</a>
                 </li>
-                @can('view',auth()->user())
+{{--                @can('view',auth()->user())--}}
                     <li class="header-content__nav-item">
-                        <a class="header-content__nav-link" href="{{route('admin.main.index')}}">Админ панель</a>
+                        <a class="header-content__nav-link" href="{{route('admin.main.index')}}" style="color: orange">
+                            Админ панель <span style="color:white">(временно открыл)</span>
+                        </a>
                     </li>
-                @endcan
+{{--                @endcan--}}
             </ul>
             <ul class="header-content__search-personal">
                 <li class="header__search">

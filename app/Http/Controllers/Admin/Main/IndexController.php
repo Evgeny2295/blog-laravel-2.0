@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\Category;
 use App\Models\Post;
 use App\Models\User;
+use Illuminate\Support\Facades\Cache;
 
 class IndexController extends Controller
 {
@@ -13,7 +14,9 @@ class IndexController extends Controller
     {
         $cntPosts = count(Post::all());
 
-        $cntCategories = count(Category::all());
+        $categories = Cache::remember('categories:all',60,fn()=>Category::all());
+
+        $cntCategories = count($categories);
 
         $cntUsers = count(User::all());
 

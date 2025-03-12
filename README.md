@@ -1,5 +1,5 @@
 Временно убрал middleware admin,verified
-Также убрал временно политику admin на main странице
+Также убрал временно политику admin в blog.blade.php
 
 
 

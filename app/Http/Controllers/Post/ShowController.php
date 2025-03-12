@@ -5,6 +5,7 @@ use App\Http\Controllers\Controller;
 use App\Models\Category;
 use App\Models\Post;
 use Carbon\Carbon;
+use Illuminate\Support\Facades\Cache;
 
 class ShowController extends Controller
 {
@@ -14,7 +15,7 @@ class ShowController extends Controller
 
         $date = Carbon::parse($post->created_at);
 
-        $categories = Category::all();
+        $categories = Cache::remember('categories:all',60,fn()=>Category::all());
 
         $relatedPosts = Post::where('category_id',$post->category_id)
             ->where('id','!=',$post->id)
