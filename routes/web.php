@@ -37,7 +37,7 @@ Route::prefix('personal')->group(function(){
 });
 
 Route::prefix('admin')->group(function(){
-    Route::group(['middleware'=>[]],function(){ //Временно убрал middleware verified, admin, auth
+    Route::group(['middleware'=>['admin','auth']],function(){ //Временно убрал middleware verified, admin, auth
         Route::get('/',[\App\Http\Controllers\Admin\Main\IndexController::class,'index'])->name('admin.main.index');
 
         Route::resources([
